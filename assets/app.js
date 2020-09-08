@@ -60,12 +60,23 @@ window.addEventListener('load', function(){
     })
   })
 /* ------------------------------------------------Image-Popup------------------------------------------------- */
-$('.project-img').magnificPopup({
-    type: 'image',
-    gallery:{
-        enabled:true
-    }
-});
+const mq = window.matchMedia("(max-width:700px)");
+if(mq.matches){
+    $('.project-img').magnificPopup({
+        type: 'image',
+        gallery:{
+            enabled:true
+        }
+    });
+}
+else{
+    $('.project-img').magnificPopup({
+        type: 'iframe',
+        gallery:{
+            enabled:true
+        }
+    });
+}
 $('.certificate-btn').magnificPopup({
     type: 'image',
     gallery:{
