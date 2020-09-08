@@ -67,7 +67,7 @@ $('.project-img').magnificPopup({
     }
 });
 $('.certificate-btn').magnificPopup({
-    type: 'iframe',
+    type: 'image',
     gallery:{
         enabled:true
     }
