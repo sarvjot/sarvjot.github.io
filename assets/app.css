@@ -264,7 +264,8 @@ input,label{
     border-top-right-radius: 2rem;
 }
 .project-card p{
-    padding-bottom: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 .project-card a img{
     width: 100%;
