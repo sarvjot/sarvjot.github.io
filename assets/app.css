@@ -348,6 +348,10 @@ input,label{
 .footer-container p{
     padding: 1rem;
 }
+.footer-container p a{
+    color: var(--main-text-color);
+    text-decoration: none;
+}
 .footer-container p.text-xs{
     padding: 0.2rem;
 }
