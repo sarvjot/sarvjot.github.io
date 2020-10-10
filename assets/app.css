@@ -220,7 +220,7 @@ input,label{
     text-align: center;
 }
 #technologies-heading{
-    padding: 5vh 0;
+    padding: 2vh 0;
 }
 .tech-card-container{
     margin: 0 auto;
@@ -228,7 +228,7 @@ input,label{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1vh;
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
 }
 .tech-card{
     width: 23vw;
