@@ -251,7 +251,7 @@ input,label{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
 }
-.project-grid button{
+.project-grid a{
     margin: 0 auto;
     width: 15rem;
 }
