@@ -493,6 +493,15 @@ input,label{
 }
 @media(max-width:900px){
     /* Projects Section styling */
+    #project-1-link{
+        grid-area: link-1;
+    }
+    #project-2-link{
+        grid-area: link-2;
+    }
+    #project-3-link{
+        grid-area: link-3;
+    }
     #project-1-github{
         grid-area: github-1;
     }
@@ -513,14 +522,14 @@ input,label{
     }
     .project-grid{
         width: 80vw;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas: 
-            "project-1"
-            "github-1"
-            "project-2"
-            "github-2"
-            "project-3"
-            "github-3"
+            "project-1 project-1"
+            "github-1 link-1"
+            "project-2 project-2"
+            "github-2 link-2"
+            "project-3 project-3"
+            "github-3 link-3"
         ;
     }
     /* about me section styling */
