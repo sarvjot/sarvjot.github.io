@@ -341,6 +341,9 @@ label {
 #cp-wrapper > a {
     background-color: var(--pupil);
 }
+#cp-wrapper p, #cp-wrapper a{
+    font-size: 2.5rem;
+}
 #cp-second-section {
     display: flex;
     flex-direction: column;
@@ -582,10 +585,6 @@ label {
     #cp-content {
         grid-template-columns: 1fr;
         height: 70vh;
-    }
-
-    #cp-wrapper p, #cp-wrapper a{
-        font-size: 2rem;
     }
 }
 @media (max-width: 700px) {
