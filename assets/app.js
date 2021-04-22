@@ -38,41 +38,84 @@ document.querySelector("#projects-btn").addEventListener("click", () => {
         offset: 1,
     });
 });
-document.querySelector("#academics-btn").addEventListener("click", () => {
-    jump(".container-academics", {
+document.querySelector("#cf-btn").addEventListener("click", () => {
+    jump(".container-cp", {
         duration: 1000,
         offset: 1,
     });
 });
-/* ------------------------------------------------Glider------------------------------------------------- */
+/* ------------------------------------------------CP - Section ------------------------------------------------- */
 
-window.addEventListener("load", function () {
-    new Glider(document.querySelector(".glider"), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: true,
-        dots: ".dots",
-        scrollLock: true,
-        arrows: {
-            prev: ".glider-prev",
-            next: ".glider-next",
-        },
-    });
-});
+let rankMap = new Map([
+    ["newbie", "grey"],
+    ["pupil", "green"],
+    ["specialist", "darkcyan"],
+    ["expert", "blue"],
+    ["candidate master", "purple"],
+    ["master", "orange"],
+    ["international master", "orange"],
+    ["grandmaster", "red"],
+    ["international grandmaster", "red"],
+    ["legendary grandmaster", "rgb(150,0,0)"],
+]);
 
-document.addEventListener("glider-loaded", hideFFScrollBars);
-document.addEventListener("glider-refresh", hideFFScrollBars);
-function hideFFScrollBars(e) {
-    var scrollbarHeight = 17; // Currently 17, may change with updates
-    if (/firefox/i.test(navigator.userAgent)) {
-        // We only need to appy to desktop. Firefox for mobile uses
-        // a different rendering engine (WebKit)
-        if (window.innerWidth > 575) {
-            e.target.parentNode.style.height =
-                e.target.offsetHeight - scrollbarHeight + "px";
+var rating = document.getElementById("rating");
+var maxRating = document.getElementById("max-rating");
+var rank = document.getElementById("rank");
+var maxRank = document.getElementById("max-rank");
+var profileLink = document.getElementById("profile-link");
+var curClass = document.getElementsByClassName("cf-stats-cur");
+var maxClass = document.getElementsByClassName("cf-stats-max");
+var cpInputField = document.getElementById("cp-input-field");
+var cpButton = document.getElementById("cp-btn");
+
+function updateCPSection(handle_name) {
+    function work(data) {
+        // console.log(data.result.length);
+        var cfRankCur = data.result[0].rank;
+        var cfRankMax = data.result[0].maxRank;
+        var cfRatingCur = data.result[0].rating;
+        var cfRatingMax = data.result[0].maxRating;
+        var profileName = data.result[0].handle;
+
+        rating.innerText = "Current Rating : " + cfRatingCur;
+        maxRating.innerText = "Max Rating : " + cfRatingMax;
+        rank.innerText = "Current Rank : " + cfRankCur;
+        maxRank.innerText = "Max Rank : " + cfRankMax;
+        profileLink.innerText = profileName;
+        profileLink.href = "https://codeforces.com/profile/"+profileName;
+        profileLink.style.backgroundColor = rankMap.get(cfRankCur);
+
+        for (var i = 0; i < curClass.length; i++) {
+            curClass[i].style.color = rankMap.get(cfRankCur);
         }
+
+        for (var i = 0; i < maxClass.length; i++) {
+            maxClass[i].style.color = rankMap.get(cfRankMax);
+        }
+
+        // console.log(data);
     }
+
+    $.ajax({
+        url: "https://codeforces.com/api/user.info?handles="+handle_name,
+        method: "GET",
+        success: work,
+    });
 }
+
+cpInputField.addEventListener('keypress',(e)=>{
+    if(e.key === 'Enter'){
+        updateCPSection(cpInputField.value);    
+    }
+})
+
+cpButton.addEventListener('click',() => {
+    updateCPSection(cpInputField.value);
+})
+
+updateCPSection("sarvjot");
+
 /* ------------------------------------------------Image-Popup------------------------------------------------- */
 $(".certificate-btn").magnificPopup({
     type: "iframe",

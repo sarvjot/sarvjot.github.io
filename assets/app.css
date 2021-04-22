@@ -21,6 +21,17 @@
     --font-style-1: "Amatic SC", cursive;
     --font-style-2: "Yanone Kaffeesatz", sans-serif;
     --font-style-3: "Flamenco", cursive;
+
+    --newbie: grey;
+    --pupil: green;
+    --specialist: darkcyan;
+    --expert: blue;
+    --candidate-master: purple;
+    --master: orange;
+    --international-master: orange;
+    --grandmaster: red;
+    --international-grandmaster: red;
+    --legendary-grandmaster: rgb(150, 0, 0);
 }
 
 /*  Color-Theme Classes */
@@ -121,12 +132,6 @@ label {
 }
 /* ------------------------------------Personalize-Section Styling Starts Here ------------------------------------------------*/
 #personalize-heading {
-    line-height: 3rem;
-}
-#technologies-heading {
-    line-height: 3rem;
-}
-#academics-heading {
     line-height: 3rem;
 }
 .container-personalize {
@@ -231,6 +236,7 @@ label {
 }
 #technologies-heading {
     padding: 2vh 0;
+    line-height: 3rem;
 }
 .tech-card-container {
     margin: 0 auto;
@@ -297,8 +303,9 @@ label {
     font-family: var(--handwriting);
     color: white;
 }
-/* ------------------------------------ Academic Section Styling Starts Here ------------------------------------------------*/
-.container-academics {
+/* ------------------------------------ CP Section Styling Starts Here ------------------------------------------------*/
+.container-cp {
+    min-height: 100vh;
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
@@ -307,56 +314,62 @@ label {
     background: var(--secondary-color);
     color: var(--secondary-text-color);
 }
-.glider-contain {
-    padding-top: 1rem;
+#cp-heading {
+    line-height: 3rem;
 }
-.glider-next {
-    right: 7vw;
-    top: 25vh;
-}
-.glider-prev {
-    left: 7vw;
-    top: 25vh;
-}
-.glider-dot.active {
-    background: white;
-}
-.academic-card {
-    margin: 0 auto;
-    background: var(--main-color);
-    color: var(--main-text-color);
-    width: 60vw !important;
+#cp-content {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-gap: 1rem;
-    border-radius: 2rem;
-    padding: 1rem;
-    -webkit-box-shadow: 0px 7px 31px -14px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 7px 31px -14px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 7px 31px -14px rgba(0, 0, 0, 0.75);
+    grid-template-columns: 1fr 1fr;
+    height: 50vh;
 }
-.photos {
+#cp-first-section {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
 }
-.academic-content {
+#cp-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    color: var(--main-text-color);
+    border-radius: 1rem;
+}
+#cp-wrapper > a {
+    background-color: var(--pupil);
+}
+#cp-second-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#cp-image-wrapper {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#cp-second-section img {
+    width: 90%;
+}
+#cp-input {
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    align-items: flex-center;
 }
-.marks {
-    text-align: start;
-}
-@-moz-document url-prefix() {
-    .glider-track {
-        margin-bottom: 17px;
-    }
-    .glider-wrap {
-        overflow: hidden;
-    }
+#cp-input-field {
+    display: block;
+    width: 45%;
+    height: 50px;
+    text-align: center;
 }
 /* ------------------------------------ Footer Section Styling Starts Here ------------------------------------------------*/
 .footer-container {
@@ -483,13 +496,13 @@ label {
         padding-top: 0;
     }
     /* academics section styling */
-    .glider-next,
+    /* .glider-next,
     .glider-prev {
         display: none;
     }
     .academic-card {
         width: 85vw !important;
-    }
+    } */
     /* technologies section styling */
     .container-technologies {
         display: block;
@@ -564,6 +577,15 @@ label {
     }
     .container-AboutMe div {
         padding-bottom: 3rem;
+    }
+    /* CP section styling */
+    #cp-content {
+        grid-template-columns: 1fr;
+        height: 70vh;
+    }
+
+    #cp-wrapper p, #cp-wrapper a{
+        font-size: 2rem;
     }
 }
 @media (max-width: 700px) {

@@ -39,7 +39,7 @@
                     Technoligies
                 </li>
                 <li id="projects-btn" class="text-md btn btn-sm">Projects</li>
-                <li id="academics-btn" class="text-md btn btn-sm">Academics</li>
+                <li id="cf-btn" class="text-md btn btn-sm">CF Stats</li>
             </ul>
         </nav>
         <!-- -----------------------------------------Home Page----------------------------------------- -->
@@ -51,17 +51,6 @@
                         B.Tech Computer Science Undergrad at Birla Institute of
                         Technology Mesra
                     </p>
-                    <!-- <div>
-                        <a
-                            class="text-md btn btn-lg"
-                            target="_blank"
-                            href="https://github.com/sarvjot/Resume/blob/master/Resume_Sarvjot.pdf"
-                            >Get Resume</a
-                        >
-                        <button class="top-btn btn-secondary btn-lg text-md">
-                            Back To Top
-                        </button>
-                    </div> -->
                 </section>
                 <section id="home-second-section">
                     <img src="assets/iconsAndVectors/coder.svg" alt="" />
@@ -262,104 +251,58 @@
                 <a class="btn text-md" id="project-3-link" href="#"> Link </a>
             </div>
         </div>
-        <!-- -----------------------------------------Academic Section----------------------------------------- -->
-        <div class="container-academics">
-            <div id="academics-heading">
-                <div class="text-lg">ACADEMICS</div>
+        <!-- -----------------------------------------CP Section----------------------------------------- -->
+
+        <div class="container-cp">
+            <div id="cp-heading">
+                <div class="text-lg">CODEFORCES STATS</div>
                 <div>
                     <button class="top-btn btn btn-xs text-sm">
                         Back To Top
                     </button>
                 </div>
             </div>
-            <p class="text-sm">
-                I recently graduated from Motilal Nehru Public School,
-                Jamshedpur, Jharhand. Now I am persuing Bachelors of technology
-                in Computer Science And Engineering from Birla Institute of
-                Technology, Mesra, Ranchi.
-            </p>
-            <div class="glider-contain">
-                <button
-                    aria-label="Previous"
-                    class="glider-prev btn-secondary btn-lg text-md glider-btn"
-                >
-                    PREV
-                </button>
-                <div class="glider glider-wrap">
-                    <div class="academic-card" id="academic-card-1">
-                        <div class="photos">
-                            <div>
-                                <img src="assets/images/cicseLogo.png" alt="" />
-                            </div>
-                            <div>
-                                <img
-                                    src="assets/images/mnpsLogoModified.png"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div class="academic-content">
-                            <p class="text-lg">Tenth Grade</p>
-                            <div class="marks">
-                                <p class="text-sm">
-                                    Overall Percentage - 96.33
-                                </p>
-                                <p class="text-sm">
-                                    Computer Applications - 100
-                                </p>
-                                <p class="text-sm">Mathematics - 100</p>
-                                <p class="text-sm">Science - 95</p>
-                            </div>
-                            <a
-                                href="assets/images/tenthResult.jpg"
-                                class="certificate-btn"
-                            >
-                                <button class="btn btn-lg text-md">
-                                    View Certificate
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="academic-card" id="academic-card-1">
-                        <div class="photos">
-                            <div>
-                                <img src="assets/images/cicseLogo.png" alt="" />
-                            </div>
-                            <div>
-                                <img
-                                    src="assets/images/mnpsLogoModified.png"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div class="academic-content">
-                            <p class="text-lg">Twelfth Grade</p>
-                            <div class="marks">
-                                <p class="text-sm">Overall Percentage - 96.6</p>
-                                <p class="text-sm">Computer Science - 100</p>
-                                <p class="text-sm">Mathematics - 100</p>
-                                <p class="text-sm">Physics - 100</p>
-                            </div>
-                            <a
-                                href="assets/images/twelfthResult.jpg"
-                                class="certificate-btn"
-                            >
-                                <button class="btn btn-lg text-md">
-                                    View Certificate
-                                </button>
-                            </a>
-                        </div>
+            <div id="cp-content">
+                <div id="cp-first-section">
+                    <div id="cp-wrapper">
+                        <p class="text-lg cf-stats-cur" id="rating">...</p>
+                        <p class="text-lg cf-stats-max" id="max-rating">...</p>
+                        <p class="text-lg cf-stats-cur" id="rank">...</p>
+                        <p class="text-lg cf-stats-max" id="max-rank">...</p>
+                        <a
+                            href="https://codeforces.com/profile/sarvjot"
+                            class="btn btn-lg text-lg"
+                            id="profile-link"
+                        >
+                            ...
+                        </a>
                     </div>
                 </div>
+                <div id="cp-second-section">
+                    <div id="cp-image-wrapper">
+                        <a href="https://codeforces.com">
+                            <img src="./assets/images/codeforces.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="cp-input">
+                <input
+                    type="text"
+                    id="cp-input-field"
+                    class="text-md"
+                    placeholder="Enter Cf Handle"
+                />
                 <button
-                    aria-label="Next"
-                    class="glider-next btn-secondary btn-lg text-md glider-btn"
+                    type="submit"
+                    class="btn text-md btn-lg btn-secondary"
+                    id="cp-btn"
                 >
-                    NEXT
+                    Get Data
                 </button>
             </div>
-            <div role="tablist" class="dots"></div>
         </div>
+
         <!-- -----------------------------------------Footer----------------------------------------- -->
         <div class="footer-container">
             <p class="text-md">Social Media Handles</p>
@@ -395,7 +338,7 @@
         <!-- -----------------------------------------Script-Tags----------------------------------------- -->
 
         <script type="module" src="assets/jquery.js"></script>
-        <script type="module" src="assets/glider.min.js"></script>
+        <!-- <script type="module" src="assets/glider.min.js"></script> -->
         <script
             type="module"
             src="assets/Magnific-Popup/dist/jquery.magnific-popup.min.js "
