@@ -71,48 +71,75 @@ var cpButton = document.getElementById("cp-btn");
 
 function updateCPSection(handle_name) {
     function work(data) {
-        // console.log(data.result.length);
-        var cfRankCur = data.result[0].rank;
-        var cfRankMax = data.result[0].maxRank;
-        var cfRatingCur = data.result[0].rating;
-        var cfRatingMax = data.result[0].maxRating;
-        var profileName = data.result[0].handle;
+        console.log(data.result.length);
+        if (data.result[0].rank == undefined) {
+            var cfRankCur = data.result[0].rank;
+            var cfRankMax = data.result[0].maxRank;
+            var cfRatingCur = data.result[0].rating;
+            var cfRatingMax = data.result[0].maxRating;
+            var profileName = data.result[0].handle;
 
-        rating.innerText = "Current Rating : " + cfRatingCur;
-        maxRating.innerText = "Max Rating : " + cfRatingMax;
-        rank.innerText = "Current Rank : " + cfRankCur;
-        maxRank.innerText = "Max Rank : " + cfRankMax;
-        profileLink.innerText = profileName;
-        profileLink.href = "https://codeforces.com/profile/"+profileName;
-        profileLink.style.backgroundColor = rankMap.get(cfRankCur);
+            rating.innerText = "Current Rating : Unrated";
+            maxRating.innerText = "Max Rating : Unrated";
+            rank.innerText = "Current Rank : - ";
+            maxRank.innerText = "Max Rank : - ";
+            profileLink.innerText = profileName;
+            profileLink.href = "https://codeforces.com/profile/" + profileName;
+            profileLink.style.backgroundColor = "black";
 
-        for (var i = 0; i < curClass.length; i++) {
-            curClass[i].style.color = rankMap.get(cfRankCur);
-        }
+            for (var i = 0; i < curClass.length; i++) {
+                curClass[i].style.color = "black";
+            }
 
-        for (var i = 0; i < maxClass.length; i++) {
-            maxClass[i].style.color = rankMap.get(cfRankMax);
+            for (var i = 0; i < maxClass.length; i++) {
+                maxClass[i].style.color = "black";
+            }
+        } else {
+            var cfRankCur = data.result[0].rank;
+            var cfRankMax = data.result[0].maxRank;
+            var cfRatingCur = data.result[0].rating;
+            var cfRatingMax = data.result[0].maxRating;
+            var profileName = data.result[0].handle;
+
+            rating.innerText = "Current Rating : " + cfRatingCur;
+            maxRating.innerText = "Max Rating : " + cfRatingMax;
+            rank.innerText = "Current Rank : " + cfRankCur;
+            maxRank.innerText = "Max Rank : " + cfRankMax;
+            profileLink.innerText = profileName;
+            profileLink.href = "https://codeforces.com/profile/" + profileName;
+            profileLink.style.backgroundColor = rankMap.get(cfRankCur);
+
+            for (var i = 0; i < curClass.length; i++) {
+                curClass[i].style.color = rankMap.get(cfRankCur);
+            }
+
+            for (var i = 0; i < maxClass.length; i++) {
+                maxClass[i].style.color = rankMap.get(cfRankMax);
+            }
         }
 
         // console.log(data);
     }
 
     $.ajax({
-        url: "https://codeforces.com/api/user.info?handles="+handle_name,
+        url: "https://codeforces.com/api/user.info?handles=" + handle_name,
         method: "GET",
         success: work,
+        error:() => {
+            alert("User Not Found!");
+        }
     });
 }
 
-cpInputField.addEventListener('keypress',(e)=>{
-    if(e.key === 'Enter'){
-        updateCPSection(cpInputField.value);    
+cpInputField.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        updateCPSection(cpInputField.value);
     }
-})
+});
 
-cpButton.addEventListener('click',() => {
+cpButton.addEventListener("click", () => {
     updateCPSection(cpInputField.value);
-})
+});
 
 updateCPSection("sarvjot");
 
