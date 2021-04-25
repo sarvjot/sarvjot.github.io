@@ -1,5 +1,5 @@
 /* -----------------------------------------Smooth Scroll effect------------------------------------------------ */
-import jump from "./node_modules/jump.js/dist/jump.module.js";
+import jump from "./jump.module.js";
 document.querySelectorAll(".top-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
         jump("#navbar", {
