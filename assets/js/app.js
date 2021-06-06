@@ -144,12 +144,7 @@ cpButton.addEventListener("click", () => {
 updateCPSection("sarvjot");
 
 /* ------------------------------------------------Image-Popup------------------------------------------------- */
-$(".certificate-btn").magnificPopup({
-    type: "iframe",
-    gallery: {
-        enabled: true,
-    },
-});
+
 $(".project-img").magnificPopup({
     type: "image",
     gallery: {
@@ -157,33 +152,6 @@ $(".project-img").magnificPopup({
     },
 });
 
-// media query event handler
-if (matchMedia) {
-    const mq = window.matchMedia("(max-width:700px)");
-    mq.addListener(WidthChange);
-    WidthChange(mq);
-}
-
-// media query change
-function WidthChange(mq) {
-    if (mq.matches) {
-        // window width is less than 500px
-        $(".certificate-btn").magnificPopup({
-            type: "image",
-            gallery: {
-                enabled: true,
-            },
-        });
-    } else {
-        // window width is more than 500px
-        $(".certificate-btn").magnificPopup({
-            type: "iframe",
-            gallery: {
-                enabled: true,
-            },
-        });
-    }
-}
 /* --------------------------------------Javascript theme Switcher ----------------------------------------------*/
 
 var body = document.querySelector("body");
